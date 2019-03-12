@@ -1,0 +1,18 @@
+{{ define "section_content" }}
+<div class="section" id="content">
+    {{ .Content }}
+    <ul>
+        {{ range .Data.Pages }}    
+            {{ if .Params.feature_image }}
+               <a href="{{.Permalink}}"><img src="/{{.Params.feature_image}}"> </a>
+            {{ else }}
+                <a href="{{.Permalink}}">
+                    {{.Title}}
+                </a>
+            {{ end }}
+            <p>{{ .Params.description }}</p>
+            <hr>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}
