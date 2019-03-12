@@ -1,4 +1,4 @@
-baseurl                 = "/"               # Your domain name. Must end with "/"
+baseurl                 = "http://www.psi-mon.com"               # Your domain name. Must end with "/"
 languageCode            = "en-us"
 defaultContentLanguage  = "en"
 isMultilingual          = false
@@ -26,7 +26,7 @@ pygmentsCodefences      = true
     primaryImage        = "tn.png"                     # Image that shows on Twitter cards and OpenGraph links
 
 [[params.mainMenu]]
-    link = "/university/"
+    link = "/university"
     text = "University Projects"
 
 [[params.mainMenu]]

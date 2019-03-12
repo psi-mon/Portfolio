@@ -30,3 +30,4 @@ description: "3D mage dual game with kinect made with Unity3d.And some more text
   {{< figure src="/images/magus/gallery/colliders1.jpg" >}}
   {{< figure src="/images/magus/gallery/screenshot.jpg" >}}
 {{< /gallery >}}
+{{< gallery dir="/images/gunbus/gallery/" />}}
