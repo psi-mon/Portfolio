@@ -1,3 +1,8 @@
+
+
+
+
+
 {{- if not ($.Page.Scratch.Get "figurecount") }}<link rel="stylesheet" href="/css/simplegallery.css" />{{ end }}
 {{- $.Page.Scratch.Add "figurecount" 1 }}
 {{ $baseURL := .Site.BaseURL }}
@@ -15,8 +20,11 @@
 				{{- $linkURL := print $baseURL ($.Get "dir") "/" .Name | absURL }}<!-- absolute URL to hi-res image -->
 				{{- $thumb := .Name | replaceRE "(\\.)" ($thumbext | printf "%s.") }}<!-- filename of thumbnail image -->
 				{{- $thumbexists := where $files "Name" $thumb }}<!-- does a thumbnail image exist? --> 
-                {{- $thumbURL := print $baseURL ($.Get "dir") "/" $thumb | absURL }}<!-- absolute URL to thumbnail image -->
-                <a href="/{{ $linkURL }}"><img src="/{{ $linkURL }}" > </a>  
+        {{- $thumbURL := print $baseURL ($.Get "dir") "/" $thumb | absURL }}<!-- absolute URL to thumbnail image -->
+								<a href="/{{ $linkURL }}"><img src="/{{ $linkURL }}" > </a>  
+								{{ $linkURL }}
+								{{$baseURL}}
+
 			{{- end }}
 		{{- end }}
 	{{- else -}}
