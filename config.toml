@@ -1,4 +1,4 @@
-baseurl                 = "http://www.psi-mon.com"               # Your domain name. Must end with "/"
+baseurl                 = "https://www.psi-mon.com"               # Your domain name. Must end with "/"
 languageCode            = "en-us"
 defaultContentLanguage  = "en"
 isMultilingual          = false
