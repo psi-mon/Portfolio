@@ -1,6 +1,6 @@
 ---
 title: "Was Ist Was - Abenteuer Erde"
-draft: false
+draft: true
 feature_image: "images/wasistwas/feature_image.png"
 description: "Was ist Was - Abenteuer Erde is an action adventure for the Nintendo DS where the player has to travel around the world and solve puzzles in order to find his missing grandfather."
 ---
