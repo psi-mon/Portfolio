@@ -1,24 +1,11 @@
 ---
 title: "Magus Arena"
-draft: true
+draft: false
 feature_image: "images/magus/feature_image.jpg"
 description: "Magus Arena is a two person Kinect game on PC and Mac. The two players have to fight each other by summoning spells like fireballs in order to throw them on the other player. The game was developed using the Unity3D game engine and OpenNI for the communication with the Microsoft Kinect hardware."
 ---
+![Example image](/images/magus/GameInfo.png )
 
-{{< highlight python >}}
-/******************************************************************
-*   Platform: PC & Mac with Kinect  
-*   Language: C#
-*   Development Duration: 12 Weeks
-*   Tools: Unity3D, Microsoft Kinect, OpenNI
-*   My Responsibility: Gesture Detection, Gameplay, UI
-*
-*   Team Composition: 1 Artist, 
-*                     1 Designer, 
-*                     1 Producer, 
-*                     2 Programmer
-*******************************************************************/
-{{< /highlight >}}
 
 Magus Arena is a two person _Kinect_ game on PC and Mac. Each player stands on a platform in a lava river facing each other. With certain hand gestures the player can cast spells like a fireball, shield or a replanish mana spell. Since the movement of the player is very limited due the small platform they are standing on it is challenging to dodge incoming fireballs.
 

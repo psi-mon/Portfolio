@@ -5,22 +5,7 @@ feature_image: "images/quest/feature_image.jpg"
 description: "The Quest is a 3D space drum shooter where you fly with your drum set through space, destroy obstacles and collect as many points as possible. The game was developed for Sony's Playstation Portable with the PhyreEngine as part of the Master Course of Professional Practice in Dundee, Scotland.
 "
 ---
-{{< highlight python >}}
-/******************************************************************
-*   Platform: PC & Mac with Kinect  
-*   Language: C#
-*   Development Duration: 12 Weeks
-*   Tools: Unity3D, Microsoft Kinect, OpenNI
-*   My Responsibility: Gesture Detection, Gameplay, UI
-*
-*   Team Composition: 1 Artist, 
-*                     1 Designer, 
-*                     1 Producer, 
-*                     2 Programmer
-*******************************************************************/
-{{< /highlight >}}
-
-![Example image](/images/quest/commentTest.png )
+![Example image](/images/quest/GameInfo.png )
 
 The Quest is a 3D space drum shooter where you fly with your drum set through space, destroy obstacles and collect as many points as possible. The game was developed for Sony's Playstation Portable with the PhyreEngine as part of the Master Course of Professional Practice in Dundee, Scotland.
 

@@ -1,23 +1,10 @@
 ---
 title: "Gunbus"
-draft: true
+draft: false
 feature_image: "images/gunbus/feature_image.jpg"
 description: "Gunbus is a two player coop Action Game where you have to fight your way through the level using different tanks. The game was developed with the Unity3D game engine."
 ---
-<pre style='color:#55cc66;background:#343434;'><span style='color:#b96969; '>/*******************************************************</span>
-<span style='color:#b96969; '>*   Platform: PC &amp; Mac with Kinect                     *</span>
-<span style='color:#b96969; '>*   Language: C#                                       *</span>
-<span style='color:#b96969; '>*   Development Duration: 12 Weeks                     *</span>
-<span style='color:#b96969; '>*   Tools: Unity3D, Microsoft Kinect, OpenNI           *</span>
-<span style='color:#b96969; '>*   My Responsibility: Gesture Detection, Gameplay, UI *</span>
-<span style='color:#b96969; '>*                                                      *</span>
-<span style='color:#b96969; '>*   Team Composition: 1 Artist,                        *</span>
-<span style='color:#b96969; '>*                     1 Designer,                      *</span>
-<span style='color:#b96969; '>*                     1 Producer,                      *</span>
-<span style='color:#b96969; '>*                     2 Programmer                     *</span>
-<span style='color:#b96969; '>********************************************************/</span>
-</pre>
-</pre>
+![Example image](/images/gunbus/GameInfo.png )
 
 Gunbus is a two player Action Game where you have to fight your way through the levels using different tanks. The game can be played as single player or with another player in coop mode. 
 
