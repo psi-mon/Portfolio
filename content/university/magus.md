@@ -2,7 +2,7 @@
 title: "Magus Arena"
 draft: false
 feature_image: "images/magus/feature_image.jpg"
-description: "Magus Arena is a two person Kinect game on PC and Mac. The two players have to fight each other by summoning spells like fireballs in order to throw them on the other player. The game was developed using the Unity3D game engine and OpenNI for the communication with the Microsoft Kinect hardware."
+description: "Magus Arena is a two person Kinect game on PC and Mac. Two players have to fight each other by summoning spells like fireballs in order to throw them on the other player. The game was developed using the Unity3D game engine and OpenNI for the communication with the Microsoft Kinect hardware."
 ---
 ![Example image](/images/magus/GameInfo.png )
 

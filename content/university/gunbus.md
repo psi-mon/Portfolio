@@ -11,7 +11,7 @@ Gunbus is a two player Action Game where you have to fight your way through the 
 My responsibility was the implementation of the enemies AI where I used _A* path-finding_ for the navigation through the level. There are several different types of enemy which have different behaviors and attributes.
 I implemented a _Hierarchical Finite State Machine_ with a _Message System_ which allowed us to design different behaviors for each enemy type with ease.
 
-As part of the Master course the goal of this project was to release and present the game a the dare to be digital exhibition.
+As part of the Master course the goal of this project was to release and present the game at the *dare to be digital* exhibition.
 The challenge was to compensate changing requirements during the development process by the tutors as well as working in a bigger team with a tight schedule and a given deadline.
 
 {{<youtube ddsLX4cJ_Ek>}}
