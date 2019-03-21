@@ -8,10 +8,9 @@ description: "enter description here"
 <span style='color:#b96969; '>*   Platform: IOS, Android                          *</span>
 <span style='color:#b96969; '>*   Language: C#                                    *</span>
 <span style='color:#b96969; '>*   Tools: Unity3D                                  *</span>
-<span style='color:#b96969; '>*   My Responsibility:   Tracksystem,               *</span>
-<span style='color:#b96969; '>*                        Minigames,                 *</span>
-<span style='color:#b96969; '>*                        UI,                        *</span>
-<span style='color:#b96969; '>*                        Release Management         *</span>
+<span style='color:#b96969; '>*   My Responsibility:   UI,                        *</span>
+<span style='color:#b96969; '>*                        Gameplay,                  *</span>
+<span style='color:#b96969; '>*                        Release process,           *</span>
 <span style='color:#b96969; '>*****************************************************/</span>
 </pre>
 </pre>
