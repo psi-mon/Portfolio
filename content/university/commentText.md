@@ -1,6 +1,6 @@
 ---
 title: "CommentText"
-draft: false
+draft: true
 feature_image: "images/commentText/feature_image.png"
 description: "enter description here"
 ---
