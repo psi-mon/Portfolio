@@ -1,6 +1,7 @@
 ---
-title: "Mars"
+title: "Mars (2017)"
 draft: false
+date: 2017
 feature_image: "images/mars/feature_image.png"
 description: "Mars is an interactive novel supported through the DCF of the MFG Medien- und Filmgesellschaft Baden-Württemberg.
 "

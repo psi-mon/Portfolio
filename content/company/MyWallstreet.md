@@ -1,6 +1,7 @@
 ---
-title: "MyWallstreet"
+title: "MyWallstreet (2018)"
 draft: false
+date: 2018
 feature_image: "images/myWallstreet/feature_image.png"
 description: "MyWallstreet is a cross platform live trading App where you can trade CFD products. The application supports Android, IOS and WebGL."
 ---

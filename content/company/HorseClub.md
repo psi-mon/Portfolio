@@ -1,6 +1,7 @@
 ---
-title: "HorseClub"
+title: "HorseClub (2019)"
 draft: false
+date: 2019
 feature_image: "images/horseClub/feature_image.png"
 description: "Horse Club is a horse adventure game for kids. It was release for the IOS Appstore, Google Play Store and Amazon Appstore."
 ---

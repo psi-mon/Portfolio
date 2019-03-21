@@ -1,6 +1,7 @@
 ---
-title: "Smartplay"
+title: "Smartplay (2014)"
 draft: false
+date: 2014
 feature_image: "images/smartplay/feature_image.png"
 description: "A hybrid game system which combines the classic board game with computer vision and Smartphones."
 ---

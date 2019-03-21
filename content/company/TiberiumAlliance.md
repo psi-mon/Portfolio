@@ -1,6 +1,7 @@
 ---
-title: "Command and Conquer : Tiberium Alliance"
+title: "Command and Conquer : Tiberium Alliance (2011)"
 draft: false
+date: 2011
 feature_image: "images/tiberiumAlliance/feature_image.jpg"
 description: "Command and Conquer - Tiberium Alliances is a military science fiction massively multiplayer online real-time strategy video game which can be played in the browser."
 ---
