@@ -1,6 +1,6 @@
 import type { z } from 'astro/zod';
 import MetaDefaultImage from '@/assets/images/meta-default.jpg';
-import avatar from '@/assets/images/avatar.jpeg';
+import avatar from '@/assets/images/avatar.png';
 import type { seoSchemaWithoutImage } from '@/content.config';
 import astroConfig from 'astro.config.mjs';
 
@@ -24,23 +24,23 @@ type DefaultConfigurationType = {
 }
 
 export const DEFAULT_CONFIGURATION: DefaultConfigurationType = {
-  baseUrl: astroConfig.site || 'https://getcvfolio.com',
+  baseUrl: astroConfig.site || 'https://psi-mon.com',
   author: {
     avatar,
-    name: 'Javier Diaz Chamorro',
-    headline: 'Engineering and Design',
-    username: 'coderdiaz',
-    location: 'Mexico City',
+    name: 'Simon Plutz',
+    headline: 'Senior Software Engineer & Game Developer',
+    username: 'splutz',
+    location: 'Munich, Germany',
     pronouns: 'He/Him',
   },
   seo: {
-    title: 'CV Folio — An Astro template inspired on Read.cv',
-    description: 'Clean and aesthetic portfolio website for developers and designers',
+    title: 'Simon Plutz - Software Engineer Portfolio',
+    description: 'Portfolio of Simon Plutz, Senior Software Engineer specializing in game development, web applications, and interactive systems',
     type: 'website',
     image: MetaDefaultImage,
     twitter: {
-      creator: '@cvfolio'
+      creator: '@splutz'
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   }
 };
