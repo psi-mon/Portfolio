@@ -154,3 +154,5 @@ This project is for Simon Plutz's personal portfolio use.
 ---
 
 Built with ❤️ using Astro and TailwindCSS
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b5cde995-3580-4fb4-aad8-5e6513d26647/deploy-status)](https://app.netlify.com/projects/reverent-hugle-d42410/deploys)
