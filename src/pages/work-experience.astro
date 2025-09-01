@@ -1,0 +1,68 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+import WorkExperienceComponent from '@/components/ui/WorkExperience.astro';
+import { getCollection } from 'astro:content';
+import { sortJobsByDate } from '@/lib/utils';
+
+const jobs = await getCollection('jobs');
+const sortedJobs = sortJobsByDate(jobs);
+
+const seo = {
+  title: 'Work Experience - Simon Plutz',
+  description: 'Professional work experience and career highlights of Simon Plutz, Senior Software Engineer',
+  type: 'website',
+  keywords: 'work experience, career, software engineering, game development',
+};
+---
+
+<BaseLayout seo={seo}>
+  <Container as="section" class="py-6">
+    <div class="flex flex-col gap-6">
+      <div class="flex items-center">
+        <span class="text-headings text-3xl font-bold">Work Experience</span>
+      </div>
+      <div class="prose dark:prose-invert">
+        <p class="text-muted-foreground text-lg">
+          My professional journey in software engineering and game development, showcasing the companies I've worked with and the projects I've contributed to.
+        </p>
+      </div>
+    </div>
+  </Container>
+
+  <Container as="section" class="py-6">
+    <div class="flex flex-col gap-8">
+      {sortedJobs.length > 0 ? (
+        <ul class="flex flex-col gap-8">
+          {sortedJobs.map((job) => (
+            <WorkExperienceComponent entry={job} />
+          ))}
+        </ul>
+      ) : (
+        <div class="text-center py-12">
+          <p class="text-muted-foreground">No work experience entries found.</p>
+        </div>
+      )}
+    </div>
+  </Container>
+
+  <Container as="section" class="py-6">
+    <div class="border border-border rounded-lg p-6 bg-muted-foreground/5">
+      <h3 class="text-xl font-semibold text-headings mb-3">Career Highlights</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="text-center">
+          <div class="text-2xl font-bold text-headings">8+</div>
+          <div class="text-sm text-muted-foreground">Years Experience</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-headings">15+</div>
+          <div class="text-sm text-muted-foreground">Games Developed</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-headings">3</div>
+          <div class="text-sm text-muted-foreground">Companies</div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</BaseLayout>

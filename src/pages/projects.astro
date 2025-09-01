@@ -1,0 +1,116 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+
+const seo = {
+  title: 'Projects - Simon Plutz',
+  description: 'Portfolio of projects and work by Simon Plutz, Senior Software Engineer',
+  type: 'website',
+  keywords: 'projects, portfolio, software engineering, development',
+};
+---
+
+<BaseLayout seo={seo}>
+  <Container as="section" class="py-6">
+    <div class="flex flex-col gap-6">
+      <div class="flex items-center">
+        <span class="text-headings text-3xl font-bold">Projects</span>
+      </div>
+      <div class="prose dark:prose-invert">
+        <p class="text-muted-foreground text-lg">
+          Here you'll find a collection of my projects, showcasing my skills and experience in software development.
+        </p>
+      </div>
+    </div>
+  </Container>
+
+  <Container as="section" class="py-6">
+    <div class="flex flex-col gap-8">
+      <!-- Project Categories -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Company Projects -->
+        <div class="border border-border rounded-lg p-6 hover:border-headings/30 transition-colors">
+          <h3 class="text-xl font-semibold text-headings mb-3">Company Projects</h3>
+          <p class="text-muted-foreground mb-4">
+            Professional projects developed during my career in software engineering.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+              <span class="text-sm text-muted-foreground">Educational Games</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span class="text-sm text-muted-foreground">Mobile Applications</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+              <span class="text-sm text-muted-foreground">Interactive Systems</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- University Projects -->
+        <div class="border border-border rounded-lg p-6 hover:border-headings/30 transition-colors">
+          <h3 class="text-xl font-semibold text-headings mb-3">University Projects</h3>
+          <p class="text-muted-foreground mb-4">
+            Academic projects and research work from my university studies.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+              <span class="text-sm text-muted-foreground">Game Development</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span class="text-sm text-muted-foreground">Web Applications</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+              <span class="text-sm text-muted-foreground">Research Work</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Project -->
+      <div class="border border-border rounded-lg p-6 bg-muted-foreground/5">
+        <h3 class="text-xl font-semibold text-headings mb-3">Featured Project: Educational Game Platform</h3>
+        <p class="text-muted-foreground mb-4">
+          A comprehensive platform for creating and managing educational games, featuring dynamic content generation, 
+          progress tracking, and cross-platform compatibility.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">Unity3D</span>
+          <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">C#</span>
+          <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">React Native</span>
+          <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">Firebase</span>
+          <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">AWS</span>
+        </div>
+        <div class="text-sm text-muted-foreground">
+          <strong>Impact:</strong> 100,000+ downloads, 40% performance improvement, 25% increase in user engagement
+        </div>
+      </div>
+
+      <!-- Project Statistics -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="text-center p-4 border border-border rounded-lg">
+          <div class="text-2xl font-bold text-headings">15+</div>
+          <div class="text-sm text-muted-foreground">Games Built</div>
+        </div>
+        <div class="text-center p-4 border border-border rounded-lg">
+          <div class="text-2xl font-bold text-headings">3</div>
+          <div class="text-sm text-muted-foreground">Platforms</div>
+        </div>
+        <div class="text-center p-4 border border-border rounded-lg">
+          <div class="text-2xl font-bold text-headings">500K+</div>
+          <div class="text-sm text-muted-foreground">Downloads</div>
+        </div>
+        <div class="text-center p-4 border border-border rounded-lg">
+          <div class="text-2xl font-bold text-headings">8+</div>
+          <div class="text-sm text-muted-foreground">Years</div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</BaseLayout>
