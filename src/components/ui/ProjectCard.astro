@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 ---
 
-<div class="border border-border rounded-lg p-6">
+<div class="border border-border rounded-lg p-6 project-card" data-project-title={title}>
   <!-- Project Title -->
   <h3 class="text-2xl font-semibold text-headings mb-4">{title}</h3>
   
@@ -30,7 +30,7 @@ const {
       src={featureImage} 
       alt={`${title} - Feature Image`} 
       class="w-full rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-      onclick="openImageModal(this.src, this.alt)"
+      onclick="openImageModal(this.src, this.alt, this)"
     />
   </div>
   
@@ -83,7 +83,7 @@ const {
             src={image} 
             alt={`${title} - Gallery Image`} 
             class="w-full rounded cursor-pointer hover:opacity-90 transition-opacity"
-            onclick="openImageModal(this.src, this.alt)"
+            onclick="openImageModal(this.src, this.alt, this)"
           />
         ))}
       </div>
@@ -92,28 +92,102 @@ const {
 </div>
 
 <!-- Image Modal -->
-<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-  <div class="relative max-w-4xl max-h-full">
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+  <div class="relative max-w-6xl max-h-full w-full">
+    <!-- Close Button -->
     <button 
-      onclick="closeImageModal()" 
-      class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-gray-300 z-10"
+      id="closeModal" 
+      class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300 z-20 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
     >
       ×
     </button>
-    <img id="modalImage" src="" alt="" class="max-w-full max-h-full rounded-lg" />
+    
+    <!-- Previous Button -->
+    <button 
+      id="prevImage" 
+      class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-2xl font-bold hover:text-gray-300 z-20 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
+    >
+      ‹
+    </button>
+    
+    <!-- Next Button -->
+    <button 
+      id="nextImage" 
+      class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-2xl font-bold hover:text-gray-300 z-20 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
+    >
+      ›
+    </button>
+    
+    <!-- Image -->
+    <img id="modalImage" src="" alt="" class="max-w-full max-h-full rounded-lg mx-auto" />
+    
+    <!-- Image Counter -->
+    <div id="imageCounter" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-3 py-1 rounded-full text-sm">
+      1 / 1
+    </div>
   </div>
 </div>
 
 <script>
-  function openImageModal(src: string, alt: string) {
+  let currentImageIndex = 0;
+  let allImages: string[] = [];
+  let allAlts: string[] = [];
+
+  function openImageModal(src: string, alt: string, clickedElement?: HTMLImageElement) {
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage') as HTMLImageElement;
+    const imageCounter = document.getElementById('imageCounter');
     
     if (modal && modalImage) {
+      let projectCard: Element | null = null;
+      
+      // Use the passed element or try to find it
+      const clickedImage = clickedElement || document.querySelector(`img[src="${src}"]`);
+      
+      if (clickedImage) {
+        // Try multiple selectors to find the project card
+        projectCard = clickedImage.closest('.project-card') || 
+                     clickedImage.closest('.border') || 
+                     clickedImage.closest('[data-project-title]');
+        
+        console.log('Clicked image found:', clickedImage);
+        console.log('Project card found:', projectCard);
+      }
+      
+      if (projectCard) {
+        const images = Array.from(projectCard.querySelectorAll('img')).map(img => img.src);
+        const alts = Array.from(projectCard.querySelectorAll('img')).map(img => img.alt);
+        
+        allImages = images;
+        allAlts = alts;
+        currentImageIndex = images.indexOf(src);
+        
+        if (currentImageIndex === -1) currentImageIndex = 0;
+        
+        console.log('Found project card with images:', images.length, 'Current index:', currentImageIndex);
+        console.log('All images:', images);
+        console.log('Clicked image src:', src);
+      } else {
+        console.log('No project card found, using single image');
+        console.log('Clicked image:', clickedImage);
+        console.log('All project cards:', document.querySelectorAll('.project-card'));
+        allImages = [src];
+        allAlts = [alt];
+        currentImageIndex = 0;
+      }
+      
       modalImage.src = src;
       modalImage.alt = alt;
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      
+      // Update counter
+      if (imageCounter) {
+        imageCounter.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
+      }
+      
+      // Show/hide navigation buttons
+      updateNavigationButtons();
     }
   }
   
@@ -125,18 +199,87 @@ const {
     }
   }
   
-  // Close modal when clicking outside the image
-  document.addEventListener('click', (e) => {
-    const modal = document.getElementById('imageModal');
-    if (e.target === modal) {
-      closeImageModal();
+  function showNextImage() {
+    if (allImages.length > 1) {
+      currentImageIndex = (currentImageIndex + 1) % allImages.length;
+      updateModalImage();
     }
+  }
+  
+  function showPrevImage() {
+    if (allImages.length > 1) {
+      currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
+      updateModalImage();
+    }
+  }
+  
+  function updateModalImage() {
+    const modalImage = document.getElementById('modalImage') as HTMLImageElement;
+    const imageCounter = document.getElementById('imageCounter');
+    
+    if (modalImage && allImages[currentImageIndex]) {
+      modalImage.src = allImages[currentImageIndex];
+      modalImage.alt = allAlts[currentImageIndex] || '';
+    }
+    
+    if (imageCounter) {
+      imageCounter.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
+    }
+    
+    updateNavigationButtons();
+  }
+  
+  function updateNavigationButtons() {
+    const prevBtn = document.getElementById('prevImage');
+    const nextBtn = document.getElementById('nextImage');
+    
+    if (prevBtn && nextBtn) {
+      if (allImages.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'flex';
+        nextBtn.style.display = 'flex';
+      }
+    }
+  }
+  
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', () => {
+    const closeBtn = document.getElementById('closeModal');
+    const prevBtn = document.getElementById('prevImage');
+    const nextBtn = document.getElementById('nextImage');
+    const modal = document.getElementById('imageModal');
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeImageModal);
+    if (prevBtn) prevBtn.addEventListener('click', showPrevImage);
+    if (nextBtn) nextBtn.addEventListener('click', showNextImage);
+    
+    // Close modal when clicking outside the image
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeImageModal();
+        }
+      });
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('imageModal');
+      if (modal && !modal.classList.contains('hidden')) {
+        if (e.key === 'Escape') {
+          closeImageModal();
+        } else if (e.key === 'ArrowLeft') {
+          showPrevImage();
+        } else if (e.key === 'ArrowRight') {
+          showNextImage();
+        }
+      }
+    });
   });
   
-  // Close modal with Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeImageModal();
-    }
-  });
+  // Make functions globally available
+  (window as any).openImageModal = openImageModal;
+  (window as any).closeImageModal = closeImageModal;
 </script>
