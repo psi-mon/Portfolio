@@ -6,7 +6,7 @@ import { getCollection } from 'astro:content';
 
 const seo = {
   title: 'University Projects - Simon Plutz',
-  description: 'Academic projects and research work from my university studies in computer science and game development',
+  description: 'Academic projects and research work from my university studies in game development',
   type: 'website',
   keywords: 'university projects, academic work, research, game development, computer science',
 };
@@ -50,24 +50,7 @@ console.log('University projects:', projects.map(p => ({ id: p.id, title: p.data
         />
       ))}
 
-      <!-- Academic Achievements -->
-      <div class="border border-border rounded-lg p-6 bg-muted-foreground/5">
-        <h3 class="text-xl font-semibold text-headings mb-4">Academic Achievements</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="text-center p-4 border border-border rounded-lg">
-            <div class="text-2xl font-bold text-headings">2</div>
-            <div class="text-sm text-muted-foreground">Degrees</div>
-          </div>
-          <div class="text-center p-4 border border-border rounded-lg">
-            <div class="text-2xl font-bold text-headings">3+</div>
-            <div class="text-sm text-muted-foreground">Major Projects</div>
-          </div>
-          <div class="text-center p-4 border border-border rounded-lg">
-            <div class="text-2xl font-bold text-headings">6</div>
-            <div class="text-sm text-muted-foreground">Years</div>
-          </div>
-        </div>
-      </div>
+    
     </div>
   </Container>
 </BaseLayout>
