@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Container from '@/components/Container.astro';
 import ProjectCard from '@/components/ui/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
 const seo = {
   title: 'University Projects - Simon Plutz',
   description: 'Academic projects and research work from my university studies in computer science and game development',
@@ -9,57 +11,12 @@ const seo = {
   keywords: 'university projects, academic work, research, game development, computer science',
 };
 
-const projects = [
-  {
-    title: "Gunbus",
-    description: "A two-player cooperative action game where players fight their way through levels using different tanks. The game features both single-player and cooperative multiplayer modes, developed with Unity3D for the 'dare to be digital' exhibition as part of the Master course.",
-    responsibilities: [
-      "Implementation of enemy AI using A* path-finding for navigation",
-      "Created Hierarchical Finite State Machine with Message System",
-      "Designed different behaviors and attributes for various enemy types",
-      "Managed changing requirements during development process",
-      "Coordinated with team members under tight schedule constraints"
-    ],
-    techStack: ["Unity3D", "C#", "A* Pathfinding", "Finite State Machine", "AI Programming"],
-    featureImage: "/images/gunbus/feature_image.jpg",
-    galleryImages: [
-      "/images/gunbus/gallery/Gunbus 2012-07-11 21-30-02-78.png",
-      "/images/gunbus/gallery/Gunbus 2012-07-11 21-37-34-50.png",
-      "/images/gunbus/gallery/Gunbus 2012-07-11 21-39-35-58.png"
-    ],
-    videoUrl: undefined
-  },
-  {
-    title: "Magus Arena",
-    description: "A two-person Kinect game for PC and Mac where players stand on platforms in a lava river facing each other. Players cast spells like fireballs, shields, and mana replenishment using hand gestures. The limited movement on small platforms makes dodging incoming fireballs challenging and strategic.",
-    responsibilities: [
-      "Integration of Microsoft Kinect hardware with OpenNI",
-      "Custom gesture recognition system for 'magical' spell gestures",
-      "Hand movement tracking and pattern mapping",
-      "Collider-based gesture detection system",
-      "Main gameplay implementation and spell casting mechanics"
-    ],
-    techStack: ["Unity3D", "C#", "OpenNI", "Microsoft Kinect", "Gesture Recognition"],
-    featureImage: "/images/magus/feature_image.jpg",
-    galleryImages: ["/images/magus/gallery/colliders1.jpg"],
-    videoUrl: "/videos/Magus_TrailerHQ.mp4"
-  },
-  {
-    title: "The Quest",
-    description: "A 3D space drum shooter where players fly with their drum set through space, destroying obstacles and collecting points. Developed for Sony's PlayStation Portable using the PhyreEngine as part of the Master Course of Professional Practice in Dundee, Scotland.",
-    responsibilities: [
-      "Complete code base development as the only programmer",
-      "Learning and implementing with PhyreEngine in limited time",
-      "Drum-to-projectile mapping system with color coding",
-      "Combo system for sequence-based special attacks",
-      "Working with limited documentation (mostly in Chinese)"
-    ],
-    techStack: ["PhyreEngine", "C++", "PlayStation Portable", "3D Graphics", "Game Logic"],
-    featureImage: "/images/quest/feature_image.jpg",
-    galleryImages: ["/images/quest/gallery/commign soon.jpg"],
-    videoUrl: "/videos/theQuestWeb.mp4"
-  }
-];
+const allProjects = await getCollection('projects');
+const projects = allProjects.filter(({ id }) => id.startsWith('university/'));
+
+// Debug: log what we're getting
+console.log('All projects:', allProjects.map(p => ({ id: p.id, title: p.data.title })));
+console.log('University projects:', projects.map(p => ({ id: p.id, title: p.data.title })));
 ---
 
 <BaseLayout seo={seo}>
@@ -83,13 +40,13 @@ const projects = [
       <!-- Projects -->
       {projects.map((project) => (
         <ProjectCard 
-          title={project.title}
-          description={project.description}
-          responsibilities={project.responsibilities}
-          techStack={project.techStack}
-          featureImage={project.featureImage}
-          galleryImages={project.galleryImages}
-          videoUrl={project.videoUrl}
+          title={project.data.title}
+          description={project.data.description}
+          responsibilities={project.data.responsibilities}
+          techStack={project.data.techStack}
+          featureImage={project.data.featureImage}
+          galleryImages={project.data.galleryImages}
+          videoUrl={project.data.videoUrl}
         />
       ))}
 

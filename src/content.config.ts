@@ -75,10 +75,24 @@ const postCollection = defineCollection({
     }),
 });
 
+const projectCollection = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/projects' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    responsibilities: z.array(z.string()),
+    techStack: z.array(z.string()),
+    featureImage: z.string(),
+    galleryImages: z.array(z.string()).optional(),
+    videoUrl: z.string().optional(),
+  }),
+});
+
 export const collections = {
   pages: pageCollection,
   links: linkCollection,
   jobs: jobCollection,
   talks: talkCollection,
   posts: postCollection,
+  projects: projectCollection,
 };
