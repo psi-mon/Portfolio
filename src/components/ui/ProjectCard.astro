@@ -1,0 +1,142 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  responsibilities: string[];
+  techStack: string[];
+  featureImage: string;
+  galleryImages?: string[];
+  videoUrl?: string;
+}
+
+const { 
+  title, 
+  description, 
+  responsibilities, 
+  techStack, 
+  featureImage, 
+  galleryImages = [], 
+  videoUrl 
+} = Astro.props;
+---
+
+<div class="border border-border rounded-lg p-6">
+  <!-- Project Title -->
+  <h3 class="text-2xl font-semibold text-headings mb-4">{title}</h3>
+  
+  <!-- Feature Image -->
+  <div class="mb-6">
+    <img 
+      src={featureImage} 
+      alt={`${title} - Feature Image`} 
+      class="w-full rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+      onclick="openImageModal(this.src, this.alt)"
+    />
+  </div>
+  
+  <!-- Description -->
+  <div class="mb-6">
+    <p class="text-muted-foreground">{description}</p>
+  </div>
+  
+  <!-- My Responsibilities -->
+  <div class="mb-6">
+    <h4 class="font-semibold text-headings mb-3">My Responsibilities:</h4>
+    <ul class="text-muted-foreground text-sm space-y-2">
+      {responsibilities.map((responsibility) => (
+        <li class="flex items-start gap-2">
+          <span class="text-headings mt-1">•</span>
+          <span>{responsibility}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+  
+  <!-- Tech Stack -->
+  <div class="mb-6">
+    <h4 class="font-semibold text-headings mb-3">Tech Stack:</h4>
+    <div class="flex flex-wrap gap-2">
+      {techStack.map((tech) => (
+        <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">{tech}</span>
+      ))}
+    </div>
+  </div>
+  
+  <!-- Video (if available) -->
+  {videoUrl && (
+    <div class="mb-6">
+      <h4 class="font-semibold text-headings mb-3">Video:</h4>
+      <video controls class="w-full rounded-lg">
+        <source src={videoUrl} type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  )}
+  
+  <!-- Gallery Images (if available) -->
+  {galleryImages.length > 0 && (
+    <div class="mb-6">
+      <h4 class="font-semibold text-headings mb-3">Gallery:</h4>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {galleryImages.map((image) => (
+          <img 
+            src={image} 
+            alt={`${title} - Gallery Image`} 
+            class="w-full rounded cursor-pointer hover:opacity-90 transition-opacity"
+            onclick="openImageModal(this.src, this.alt)"
+          />
+        ))}
+      </div>
+    </div>
+  )}
+</div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+  <div class="relative max-w-4xl max-h-full">
+    <button 
+      onclick="closeImageModal()" 
+      class="absolute top-4 right-4 text-white text-2xl font-bold hover:text-gray-300 z-10"
+    >
+      ×
+    </button>
+    <img id="modalImage" src="" alt="" class="max-w-full max-h-full rounded-lg" />
+  </div>
+</div>
+
+<script>
+  function openImageModal(src: string, alt: string) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage') as HTMLImageElement;
+    
+    if (modal && modalImage) {
+      modalImage.src = src;
+      modalImage.alt = alt;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  }
+  
+  // Close modal when clicking outside the image
+  document.addEventListener('click', (e) => {
+    const modal = document.getElementById('imageModal');
+    if (e.target === modal) {
+      closeImageModal();
+    }
+  });
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeImageModal();
+    }
+  });
+</script>

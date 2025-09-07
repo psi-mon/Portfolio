@@ -1,13 +1,65 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Container from '@/components/Container.astro';
-
+import ProjectCard from '@/components/ui/ProjectCard.astro';
 const seo = {
   title: 'University Projects - Simon Plutz',
   description: 'Academic projects and research work from my university studies in computer science and game development',
   type: 'website',
   keywords: 'university projects, academic work, research, game development, computer science',
 };
+
+const projects = [
+  {
+    title: "Gunbus",
+    description: "A two-player cooperative action game where players fight their way through levels using different tanks. The game features both single-player and cooperative multiplayer modes, developed with Unity3D for the 'dare to be digital' exhibition as part of the Master course.",
+    responsibilities: [
+      "Implementation of enemy AI using A* path-finding for navigation",
+      "Created Hierarchical Finite State Machine with Message System",
+      "Designed different behaviors and attributes for various enemy types",
+      "Managed changing requirements during development process",
+      "Coordinated with team members under tight schedule constraints"
+    ],
+    techStack: ["Unity3D", "C#", "A* Pathfinding", "Finite State Machine", "AI Programming"],
+    featureImage: "/images/gunbus/feature_image.jpg",
+    galleryImages: [
+      "/images/gunbus/gallery/Gunbus 2012-07-11 21-30-02-78.png",
+      "/images/gunbus/gallery/Gunbus 2012-07-11 21-37-34-50.png",
+      "/images/gunbus/gallery/Gunbus 2012-07-11 21-39-35-58.png"
+    ],
+    videoUrl: undefined
+  },
+  {
+    title: "Magus Arena",
+    description: "A two-person Kinect game for PC and Mac where players stand on platforms in a lava river facing each other. Players cast spells like fireballs, shields, and mana replenishment using hand gestures. The limited movement on small platforms makes dodging incoming fireballs challenging and strategic.",
+    responsibilities: [
+      "Integration of Microsoft Kinect hardware with OpenNI",
+      "Custom gesture recognition system for 'magical' spell gestures",
+      "Hand movement tracking and pattern mapping",
+      "Collider-based gesture detection system",
+      "Main gameplay implementation and spell casting mechanics"
+    ],
+    techStack: ["Unity3D", "C#", "OpenNI", "Microsoft Kinect", "Gesture Recognition"],
+    featureImage: "/images/magus/feature_image.jpg",
+    galleryImages: ["/images/magus/gallery/colliders1.jpg"],
+    videoUrl: "/videos/Magus_TrailerHQ.mp4"
+  },
+  {
+    title: "The Quest",
+    description: "A 3D space drum shooter where players fly with their drum set through space, destroying obstacles and collecting points. Developed for Sony's PlayStation Portable using the PhyreEngine as part of the Master Course of Professional Practice in Dundee, Scotland.",
+    responsibilities: [
+      "Complete code base development as the only programmer",
+      "Learning and implementing with PhyreEngine in limited time",
+      "Drum-to-projectile mapping system with color coding",
+      "Combo system for sequence-based special attacks",
+      "Working with limited documentation (mostly in Chinese)"
+    ],
+    techStack: ["PhyreEngine", "C++", "PlayStation Portable", "3D Graphics", "Game Logic"],
+    featureImage: "/images/quest/feature_image.jpg",
+    galleryImages: ["/images/quest/gallery/commign soon.jpg"],
+    videoUrl: "/videos/theQuestWeb.mp4"
+  }
+];
 ---
 
 <BaseLayout seo={seo}>
@@ -28,155 +80,18 @@ const seo = {
 
   <Container as="section" class="py-6">
     <div class="flex flex-col gap-8">
-      <!-- Gunbus Project -->
-      <div class="border border-border rounded-lg p-6">
-        <div class="flex flex-col md:flex-row gap-6">
-          <div class="md:w-1/2">
-            <img src="/images/gunbus/feature_image.jpg" alt="Gunbus Game Screenshot" class="w-full rounded-lg mb-4" />
-            <div class="grid grid-cols-2 gap-2">
-              <img src="/images/gunbus/gallery/Gunbus 2012-07-11 21-30-02-78.png" alt="Gunbus Gallery 1" class="w-full rounded" />
-              <img src="/images/gunbus/gallery/Gunbus 2012-07-11 21-37-34-50.png" alt="Gunbus Gallery 2" class="w-full rounded" />
-            </div>
-          </div>
-          <div class="md:w-1/2">
-            <h3 class="text-2xl font-semibold text-headings mb-3">Gunbus</h3>
-            <p class="text-muted-foreground mb-4">
-              A two-player cooperative action game where players fight their way through levels using different tanks. 
-              The game features both single-player and cooperative multiplayer modes, developed with Unity3D for the 
-              "dare to be digital" exhibition as part of the Master course.
-            </p>
-            
-            <div class="mb-4">
-              <h4 class="font-semibold text-headings mb-2">My Responsibilities:</h4>
-              <ul class="text-muted-foreground text-sm space-y-1">
-                <li>• Implementation of enemy AI using A* path-finding for navigation</li>
-                <li>• Created Hierarchical Finite State Machine with Message System</li>
-                <li>• Designed different behaviors and attributes for various enemy types</li>
-                <li>• Managed changing requirements during development process</li>
-                <li>• Coordinated with team members under tight schedule constraints</li>
-              </ul>
-            </div>
-
-            <div class="mb-4">
-              <h4 class="font-semibold text-headings mb-2">Tech Stack:</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">Unity3D</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">C#</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">A* Pathfinding</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">Finite State Machine</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">AI Programming</span>
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <h4 class="font-semibold text-headings mb-2">Video:</h4>
-              <div class="aspect-video bg-muted-foreground/10 rounded-lg flex items-center justify-center">
-                <p class="text-muted-foreground text-sm">Video: Gunbus Gameplay</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Magus Arena Project -->
-      <div class="border border-border rounded-lg p-6">
-        <div class="flex flex-col md:flex-row gap-6">
-          <div class="md:w-1/2">
-            <img src="/images/magus/feature_image.jpg" alt="Magus Arena Game Screenshot" class="w-full rounded-lg mb-4" />
-            <div class="grid grid-cols-1 gap-2">
-              <img src="/images/magus/gallery/colliders1.jpg" alt="Magus Arena Colliders" class="w-full rounded" />
-            </div>
-          </div>
-          <div class="md:w-1/2">
-            <h3 class="text-2xl font-semibold text-headings mb-3">Magus Arena</h3>
-            <p class="text-muted-foreground mb-4">
-              A two-person Kinect game for PC and Mac where players stand on platforms in a lava river facing each other. 
-              Players cast spells like fireballs, shields, and mana replenishment using hand gestures. The limited movement 
-              on small platforms makes dodging incoming fireballs challenging and strategic.
-            </p>
-            
-            <div class="mb-4">
-              <h4 class="font-semibold text-headings mb-2">My Responsibilities:</h4>
-              <ul class="text-muted-foreground text-sm space-y-1">
-                <li>• Integration of Microsoft Kinect hardware with OpenNI</li>
-                <li>• Custom gesture recognition system for "magical" spell gestures</li>
-                <li>• Hand movement tracking and pattern mapping</li>
-                <li>• Collider-based gesture detection system</li>
-                <li>• Main gameplay implementation and spell casting mechanics</li>
-              </ul>
-            </div>
-
-            <div class="mb-4">
-              <h4 class="font-semibold text-headings mb-2">Tech Stack:</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">Unity3D</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">C#</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">OpenNI</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">Microsoft Kinect</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">Gesture Recognition</span>
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <h4 class="font-semibold text-headings mb-2">Video:</h4>
-              <video controls class="w-full rounded-lg">
-                <source src="/videos/Magus_TrailerHQ.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- The Quest Project -->
-      <div class="border border-border rounded-lg p-6">
-        <div class="flex flex-col md:flex-row gap-6">
-          <div class="md:w-1/2">
-            <img src="/images/quest/feature_image.jpg" alt="The Quest Game Screenshot" class="w-full rounded-lg mb-4" />
-            <div class="grid grid-cols-1 gap-2">
-              <img src="/images/quest/gallery/commign soon.jpg" alt="The Quest Coming Soon" class="w-full rounded" />
-            </div>
-          </div>
-          <div class="md:w-1/2">
-            <h3 class="text-2xl font-semibold text-headings mb-3">The Quest</h3>
-            <p class="text-muted-foreground mb-4">
-              A 3D space drum shooter where players fly with their drum set through space, destroying obstacles and 
-              collecting points. Developed for Sony's PlayStation Portable using the PhyreEngine as part of the 
-              Master Course of Professional Practice in Dundee, Scotland.
-            </p>
-            
-            <div class="mb-4">
-              <h4 class="font-semibold text-headings mb-2">My Responsibilities:</h4>
-              <ul class="text-muted-foreground text-sm space-y-1">
-                <li>• Complete code base development as the only programmer</li>
-                <li>• Learning and implementing with PhyreEngine in limited time</li>
-                <li>• Drum-to-projectile mapping system with color coding</li>
-                <li>• Combo system for sequence-based special attacks</li>
-                <li>• Working with limited documentation (mostly in Chinese)</li>
-              </ul>
-            </div>
-
-            <div class="mb-4">
-              <h4 class="font-semibold text-headings mb-2">Tech Stack:</h4>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">PhyreEngine</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">C++</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">PlayStation Portable</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">3D Graphics</span>
-                <span class="px-3 py-1 bg-headings/10 text-headings rounded-full text-sm">Game Logic</span>
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <h4 class="font-semibold text-headings mb-2">Video:</h4>
-              <video controls class="w-full rounded-lg">
-                <source src="/videos/theQuestWeb.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Projects -->
+      {projects.map((project) => (
+        <ProjectCard 
+          title={project.title}
+          description={project.description}
+          responsibilities={project.responsibilities}
+          techStack={project.techStack}
+          featureImage={project.featureImage}
+          galleryImages={project.galleryImages}
+          videoUrl={project.videoUrl}
+        />
+      ))}
 
       <!-- Academic Achievements -->
       <div class="border border-border rounded-lg p-6 bg-muted-foreground/5">
