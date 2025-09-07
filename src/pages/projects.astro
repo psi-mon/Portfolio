@@ -29,8 +29,8 @@ const seo = {
       <!-- Project Categories -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Company Projects -->
-        <div class="border border-border rounded-lg p-6 hover:border-headings/30 transition-colors">
-          <h3 class="text-xl font-semibold text-headings mb-3">Company Projects</h3>
+        <a href="/company-projects" class="block border border-border rounded-lg p-6 hover:border-headings/30 transition-colors cursor-pointer group">
+          <h3 class="text-xl font-semibold text-headings mb-3 group-hover:text-headings/80">Company Projects</h3>
           <p class="text-muted-foreground mb-4">
             Professional projects developed during my career in software engineering.
           </p>
@@ -48,11 +48,14 @@ const seo = {
               <span class="text-sm text-muted-foreground">Interactive Systems</span>
             </div>
           </div>
-        </div>
+          <div class="mt-4 text-sm text-headings/60 group-hover:text-headings/80">
+            View all company projects →
+          </div>
+        </a>
 
         <!-- University Projects -->
-        <div class="border border-border rounded-lg p-6 hover:border-headings/30 transition-colors">
-          <h3 class="text-xl font-semibold text-headings mb-3">University Projects</h3>
+        <a href="/university-projects" class="block border border-border rounded-lg p-6 hover:border-headings/30 transition-colors cursor-pointer group">
+          <h3 class="text-xl font-semibold text-headings mb-3 group-hover:text-headings/80">University Projects</h3>
           <p class="text-muted-foreground mb-4">
             Academic projects and research work from my university studies.
           </p>
@@ -70,7 +73,10 @@ const seo = {
               <span class="text-sm text-muted-foreground">Research Work</span>
             </div>
           </div>
-        </div>
+          <div class="mt-4 text-sm text-headings/60 group-hover:text-headings/80">
+            View all university projects →
+          </div>
+        </a>
       </div>
 
       <!-- Featured Project -->
