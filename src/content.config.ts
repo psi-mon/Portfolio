@@ -83,6 +83,7 @@ const projectCollection = defineCollection({
     responsibilities: z.array(z.string()),
     techStack: z.array(z.string()),
     featureImage: z.string(),
+    year: z.number(),
     galleryImages: z.array(z.string()).optional(),
     videoUrl: z.string().optional(),
   }),

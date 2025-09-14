@@ -2,6 +2,7 @@
 export interface Props {
   title: string;
   description: string;
+  year: number;
   responsibilities: string[];
   techStack: string[];
   featureImage: string;
@@ -12,6 +13,7 @@ export interface Props {
 const { 
   title, 
   description, 
+  year,
   responsibilities, 
   techStack, 
   featureImage, 
@@ -21,8 +23,11 @@ const {
 ---
 
 <div class="border border-border rounded-lg p-6 project-card" data-project-title={title}>
-  <!-- Project Title -->
-  <h3 class="text-2xl font-semibold text-headings mb-4">{title}</h3>
+  <!-- Project Title and Year -->
+  <div class="flex items-center justify-between mb-4">
+    <h3 class="text-2xl font-semibold text-headings">{title}</h3>
+    <span class="text-lg font-medium text-muted-foreground bg-muted-foreground/10 px-3 py-1 rounded-full">{year}</span>
+  </div>
   
   <!-- Feature Image -->
   <div class="mb-6">

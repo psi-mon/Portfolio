@@ -12,7 +12,9 @@ const seo = {
 };
 
 const allProjects = await getCollection('projects');
-const projects = allProjects.filter(({ id }) => id.startsWith('company/'));
+const projects = allProjects
+  .filter(({ id }) => id.startsWith('company/'))
+  .sort((a, b) => b.data.year - a.data.year);
 
 // Debug: log what we're getting
 console.log('All projects:', allProjects.map(p => ({ id: p.id, title: p.data.title })));
@@ -42,6 +44,7 @@ console.log('Company projects:', projects.map(p => ({ id: p.id, title: p.data.ti
         <ProjectCard 
           title={project.data.title}
           description={project.data.description}
+          year={project.data.year}
           responsibilities={project.data.responsibilities}
           techStack={project.data.techStack}
           featureImage={project.data.featureImage}
