@@ -30,7 +30,7 @@ export const DEFAULT_CONFIGURATION: DefaultConfigurationType = {
     name: 'Simon Plutz',
     headline: 'Senior Software Engineer & Game Developer',
     username: 'splutz',
-    location: 'Munich, Germany',
+    location: 'Stuttgart Area, Germany',
     pronouns: 'He/Him',
   },
   seo: {
@@ -38,9 +38,6 @@ export const DEFAULT_CONFIGURATION: DefaultConfigurationType = {
     description: 'Portfolio of Simon Plutz, Senior Software Engineer specializing in game development, web applications, and interactive systems',
     type: 'website',
     image: MetaDefaultImage,
-    twitter: {
-      creator: '@splutz'
-    },
     robots: 'index, follow',
   }
 };
