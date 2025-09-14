@@ -10,33 +10,36 @@ const isEducationPage = pathname.startsWith('/education');
 ---
 
 <Container as='header' class="w-full max-w-full flex justify-center items-center">
-  <div class="w-max fixed top-0 mt-5 bg-muted-foreground/40 backdrop-blur-md border border-border rounded-full p-1">
+  <div class="w-max fixed top-0 mt-5 mx-2 bg-muted-foreground/40 backdrop-blur-md border border-border rounded-full p-1 max-w-[calc(100vw-1rem)]">
     <nav class="flex items-center">
       <ul class="flex items-center gap-1">
         <li>
           <a href="/" class:list={[
-            'font-medium transition-colors block px-5 py-2',
+            'font-medium transition-colors block px-2 sm:px-5 py-2 text-sm sm:text-base',
             'hover:text-headings',
             isHomePage && 'text-headings bg-muted-foreground/40 rounded-full',
           ]}>Home</a>
         </li>
         <li>
           <a href="/work-experience" class:list={[
-            'font-medium transition-colors block px-5 py-2',
+            'font-medium transition-colors block px-2 sm:px-5 py-2 text-sm sm:text-base',
             'hover:text-headings',
             isWorkExperiencePage && 'text-headings bg-muted-foreground/40 rounded-full',
-          ]}>Work Experience</a>
+          ]}>
+            <span class="hidden sm:inline">Work Experience</span>
+            <span class="sm:hidden">Work</span>
+          </a>
         </li>
         <li>
           <a href="/projects" class:list={[
-            'font-medium transition-colors block px-5 py-2',
+            'font-medium transition-colors block px-2 sm:px-5 py-2 text-sm sm:text-base',
             'hover:text-headings',
             isProjectsPage && 'text-headings bg-muted-foreground/40 rounded-full',
           ]}>Projects</a>
         </li>
         <li>
           <a href="/education" class:list={[
-            'font-medium transition-colors block px-5 py-2',
+            'font-medium transition-colors block px-2 sm:px-5 py-2 text-sm sm:text-base',
             'hover:text-headings',
             isEducationPage && 'text-headings bg-muted-foreground/40 rounded-full',
           ]}>Education</a>
