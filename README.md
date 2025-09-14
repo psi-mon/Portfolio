@@ -146,7 +146,6 @@ npm run preview
 ## 🔗 Links
 - **Live Site**: https://psi-mon.com
 - **GitHub**: https://github.com/splutz
-- **Email**: simon@psi-mon.com
 
 ## 📝 License
 This project is for Simon Plutz's personal portfolio use.
